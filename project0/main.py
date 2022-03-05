@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 # Example main.py
 import argparse
@@ -10,21 +11,22 @@ def main(url):
 
     # Extract data
     incidents = project0.extractincidents(incident_data)
-                        
+	
     # Create new database
     db = project0.createdb()
-                                    
+	
     # Insert data
-    project0.populatedb(db, incidents)
-                                                
+    project0.populatedb(incidents)
+	
     # Print incident counts
-    project0.status(db)
+    project0.status()
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--incidents", type=str, required=True, help="Incident summary url.")
-                                                                         
+    parser.add_argument("--incidents", type=str, required=True, 
+                         help="Incident summary url.")
+     
     args = parser.parse_args()
     if args.incidents:
         main(args.incidents)
