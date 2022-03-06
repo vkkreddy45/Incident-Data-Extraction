@@ -36,6 +36,14 @@ After that, Create two files with files names as main.py and project0.py.
 
 This file is used for the processing of the data and to get the output. Generally, there are five functions implemented in this file such as,
 
+a. project0.fetchincidents(url) : is used to fetch data from the incidents reports url. 
+b. project0.extractincidents(incidents) : is used to extract and parse the data and store the data in the form lists to insert into the database. 
+c. project0.createdb() : is used to create a new datbase. 
+d. project0.populatedb(incidents) : is used to insert the data that is present in the form of lists into a database.
+e. project0.status() : is used to fetch the required output.
+
+2. project0.py
+
 a. fetchincidents(url) :
 
 This method is used to input different incident url's where we take url as the input. The urllib package that we use in this method is used to read the data from the provided input url.   
@@ -63,7 +71,7 @@ e. status() :
 
 In this method we connect to the database and output the Nature field with their count's.
 
-2. project0.py
+3. test_data.py
 
 a. fetchincidents(url) : 
 
@@ -78,10 +86,13 @@ c. createdb() :
 This method is used for testing the createdb() in project0.py. Here, In this method I am trying to check whether the table that is created is empty or not.
 
 d. populatedb(incidents) : 
-
+i
 This method is used for testing the populatedb(incidents) in project0.py. Here, In this method I am trying to check whether the data that we are receiving is properly inserted or not.
 
 e. status() : 
 
 This method is used for testing the status() in project0.py. Here, In this method I am trying to verify whether the data that we have received in the extractincidents(incidents) is properly entered into the incidents table or not.
+
+# References
+
 
