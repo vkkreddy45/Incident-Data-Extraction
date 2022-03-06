@@ -1,0 +1,7 @@
+1.Pandas = [1.4.0] : It is used for importing datasets and sort the data in rows and columns.
+2.PyPDF2 : It is used for the extraction, merging the pdfs, splitting the pages of a pdf file etc.
+3.re : Regular Expression, is used for checking whether a particular string given is matched with the re or not. 
+4.sqlite3 = [3.35.5] : It is used for accessing, creating and calling data in the database using the SQL Language.
+5.tempfile : In this project we are using this Library as the temporary variable for storing the data.
+6.urlib : This is used for fetching the URL.
+7.argparse : This Library is used for Positional Argumenting, Customization of prefix characters etc. Mainly used for handling command line argumenits. 

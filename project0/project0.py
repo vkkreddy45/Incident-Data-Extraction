@@ -3,7 +3,6 @@ import sqlite3
 import urllib.request
 
 import re
-import numpy as np
 import pandas as pd
 import PyPDF2
 import tempfile
