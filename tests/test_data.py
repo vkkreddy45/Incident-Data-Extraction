@@ -1,18 +1,19 @@
-
-import pandas as pd
-import project0
+from project0 import project0
+import pytest
 import PyPDF2
 import re
 import sqlite3
+import tempfile
 
+url="https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-27_daily_incident_summary.pdf"
 
-def fetchincidentstest():
+def test_fetchincidents():
     f = project0.fetchincidents(url)  
     assert f is not None  
 
-def extractincidentstest():
-    f = project0.fetchincidents(url)
-    e = project0.extractincidents(f)
+def test_extractincidents():
+
+    e = extractedpdfdata()
 
     assert len(e) != 0
     assert type(e) is list
@@ -20,26 +21,26 @@ def extractincidentstest():
     for values in e:
         assert len(values)==5  
 
-def createdbtest():
-    project0.createdb() 
-    conn = sqlite3.connect('normanpd.db')  
+def test_createdb():
+    db = project0.createdb() 
+    conn = sqlite3.connect(db)  
     c = conn.cursor()  
-    c.execute('''select * From incidents''')  
+    d = c.execute('select * from incidents;')
     assert c.fetchall()==[]  
 
-def populatedbtest():
-    f= project0.fetchIncidents(url)
-    e = project0.extractIncidents(f)
-    db = project0.createDB()
-    project0.populatedB(e)
-
+def test_populatedb(): 
+    db = project0.createdb()
     conn = sqlite3.connect(db)
     c = conn.cursor()
-    c.execute('''select count(*) from incidents''')
-    assert len(e) == c.fetchall()[0][0]
+    res = c.execute('select * from incidents;')
+    assert res != None
 
 def extractedpdfdata():
-    pdfReader = PyPDF2.pdf.PdfFileReader('2022-02-27_daily_incident_summary.pdf')
+    a = project0.fetchincidents(url)
+    fp = tempfile.TemporaryFile()
+    fp.write(a)
+    fp.seek(0)
+    pdfReader = PyPDF2.pdf.PdfFileReader(fp)
     pagenum = pdfReader.getNumPages()
     #print("number of pages in the pdf",pagenum)
 
@@ -117,20 +118,8 @@ def extractedpdfdata():
                 temp = []
             else:
                 i = i+1
-    df=pd.DataFrame(flist1)
-    df.columns = ["Date / Time","Incident Number","Location", "Nature","Incident ORI"]
-    return df 
+        return flist1
 
-def teststatus():
-    incidentslist = extractedpdfdata()
-    project0.populatedB(incidentslist)
-
-    conn = sqlite3.connect('norman.db')
-    c = conn.cursor()
-
-    c.execute('''select sum(count(*)) from 
-    (select nature, count(*) from incidents group by nature)''')
-
-    assert len(incidentslist) == c.fetchall()[0][0]
-
-url="https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-27_daily_incident_summary.pdf"
+def test_status():
+    res = project0.status()
+    assert type(res) == list

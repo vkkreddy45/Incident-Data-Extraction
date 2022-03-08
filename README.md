@@ -13,33 +13,38 @@ Required Output: Print each nature and the number of times it appears.
 
 The below mentioned are the required list of packages for this project:
 
--argparse
--Pandas
--PyPDF2
--re
--sqlite3
--tempfile
--urllib
+.argparse
+.pandas
+.PyPDF2
+.re
+.sqlite3
+.tempfile
+.urllib
 
 From the above mentioned packages,
 
--install PyPDF2 and Pandas with the command [pipenv install package]
+-install PyPDF2 and Pandas with the command [pipenv install package].
+
 -other all are the standard libraries which can be installed in python.
 
 # Description
 
 In this project Initially we should downlaod a Incident PDF File from the Norman Police Department Activity Reports.
 
-After that, Create two files with files names as main.py and project0.py.
+After that, Create two files with files names as main.py and project0.py. Additionally, we have to create a test_data.py for testing purpose. 
 
 1. main.py
 
 This file is used for the processing of the data and to get the output. Generally, there are five functions implemented in this file such as,
 
-a. project0.fetchincidents(url) : is used to fetch data from the incidents reports url. 
-b. project0.extractincidents(incidents) : is used to extract and parse the data and store the data in the form lists to insert into the database. 
+a. project0.fetchincidents(url) : is used to fetch data from the incidents reports url.
+ 
+b. project0.extractincidents(incidents) : is used to extract and parse the data and store the data in the form lists to insert into the database.
+ 
 c. project0.createdb() : is used to create a new datbase. 
+
 d. project0.populatedb(incidents) : is used to insert the data that is present in the form of lists into a database.
+
 e. project0.status() : is used to fetch the required output.
 
 2. project0.py
@@ -60,7 +65,7 @@ Lastly, I have appended all the data with count 5 splitting in different lists. 
 
 c. createdb() :
 
-This method is usually used for creating a database by connecting to SQLite3. Then, after the connection is established we create a cursor object and call its execute method to perform the passed SQL commands. Then at last we commit and save the changes made
+This method is usually used for creating a database by connecting to SQLite3. Then, after the connection is established we create a cursor object and call its execute method to perform the passed SQL commands. Then at last we commit and save the changes made.
 
 d. populatedb(incidents) : 
 
@@ -86,13 +91,19 @@ c. createdb() :
 This method is used for testing the createdb() in project0.py. Here, In this method I am trying to check whether the table that is created is empty or not.
 
 d. populatedb(incidents) : 
-i
+
 This method is used for testing the populatedb(incidents) in project0.py. Here, In this method I am trying to check whether the data that we are receiving is properly inserted or not.
 
 e. status() : 
 
-This method is used for testing the status() in project0.py. Here, In this method I am trying to verify whether the data that we have received in the extractincidents(incidents) is properly entered into the incidents table or not.
+This method is used for testing the status() in project0.py. Here, In this method I am trying to verify whether the data that we have received in the extractincidents(incidents) is of list type or not.
 
-# References
+# How to run the Project
 
+- Command:
 
+pipenv run python project0/main.py --incidents https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-27_daily_incident_summary.pdf
+
+- Output: [ Nature Column Data | Count of Data in Nature Column ]
+
+Example, Cardiac Respritory Arrest|4
