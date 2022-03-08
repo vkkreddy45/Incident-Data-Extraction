@@ -13,19 +13,19 @@ Required Output: Print each nature and the number of times it appears.
 
 The below mentioned are the required list of packages for this project:
 
-.argparse
-.pandas
-.PyPDF2
-.re
-.sqlite3
-.tempfile
-.urllib
+- argparse
+- pandas
+- PyPDF2
+- re
+- sqlite3
+- tempfile
+- urllib
 
 From the above mentioned packages,
 
--install PyPDF2 and Pandas with the command [pipenv install package].
+- install PyPDF2 and Pandas with the command [pipenv install package].
 
--other all are the standard libraries which can be installed in python.
+- other all are the standard libraries which can be installed in python.
 
 # Description
 
