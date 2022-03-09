@@ -107,3 +107,14 @@ pipenv run python project0/main.py --incidents https://www.normanok.gov/sites/de
 - Output: [ Nature Column Data | Count of Data in Nature Column ]
 
 Example, Cardiac Respritory Arrest|4
+
+# How to run the test cases
+
+- Command:
+
+pipenv run python -m pytest -v
+
+- Output: 
+
+
+- 
