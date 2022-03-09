@@ -1,0 +1,9 @@
+- SQLite3 Documentation | https://docs.python.org/3.8/library/sqlite3.html | referred this documentation to get some idea regarding the connection and execution.
+
+- Normanok.gov | https://www.normanok.gov/public-safety/police-department/crime-prevention-data/department-activity-reports | referred this for downloading the dataset.
+
+- Regular Expressions in Python | https://www.pythonforbeginners.com/files/how-to-extract-a-date-from-a-txt-file-in-python, https://developers.google.com/edu/python/regular-expressions | Referred this website for some of the regular expressions like date, incident number, incident ori etc.
+
+- Geeks for Geeks | https://www.geeksforgeeks.org/different-ways-to-iterate-over-rows-in-pandas-dataframe/ | Reffered this website for list iteration in the form of rows and colummns.
+
+- Delftstack | https://www.delftstack.com/howto/python-pandas/how-to-iterate-through-rows-of-a-dataframe-in-pandas/ | Referred this to populate data into database by using the iloc concepts.
